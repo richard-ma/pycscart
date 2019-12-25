@@ -88,9 +88,10 @@ class Cscart:
         return self._put(api, data).json()
 
 if __name__ == "__main__":
+    pass
     #c = Cscart(domain="http://clothingfan.com",
-               #email="mywebadmin@admin.com",
-               #api_key="v21AY99014bJ76133UZhgCl46AB66G07")
+               #email="testadmin@admin.com",
+               #api_key="qoS19R443v6h267Oa0l4L13R73220e91")
     # test get orders
     #print(c.get_orders())
 
