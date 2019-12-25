@@ -1,6 +1,5 @@
 import requests
 import base64
-import json
 
 
 class APIException(Exception):
@@ -89,10 +88,19 @@ class Cscart:
         return self._put(api, data).json()
 
 if __name__ == "__main__":
-    c = Cscart(domain="http://clothingfan.com",
-               email="mywebadmin@admin.com",
-               api_key="v21AY99014bJ76133UZhgCl46AB66G07")
+    #c = Cscart(domain="http://clothingfan.com",
+               #email="mywebadmin@admin.com",
+               #api_key="v21AY99014bJ76133UZhgCl46AB66G07")
+    # test get orders
+    #print(c.get_orders())
+
+    # test get
     #print(c.get_order('1210818'))
+
+    # test delete
+    #print(c.delete_order('xxxxxx'))
+
+    # test create
     #data = {
         #"user_id": "6993",
         #"shipping_id": "4",
@@ -104,7 +112,9 @@ if __name__ == "__main__":
         #}
     #}
     #print(c.create_order("1", data))
-    data = {
-            "status": "O"
-    }
-    print(c.update_order('1210826', data))
+
+    # test update
+    #data = {
+            #"status": "O"
+    #}
+    #print(c.update_order('1210826', data))
