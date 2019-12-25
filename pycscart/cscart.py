@@ -191,14 +191,34 @@ class Cscart:
         return self._get(api).json()
 
     def delete_order(self, order_id: str) -> None:
+        """删除订单
+
+        :order_id: 订单ID
+        :returns: None
+
+        """
         api = "/orders/" + order_id
         self._delete(api)
 
     def create_order(self, company_id: str, data: dict) -> dict:
+        """创建订单
+
+        :company_id: 单用户都用1
+        :data: 订单信息
+        :returns: order_id
+
+        """
         api = "/stores/%s/orders" % (company_id)
         return self._post(api, data).json()
 
     def update_order(self, order_id: str, data: dict) -> dict:
+        """更新订单
+
+        :order_id: 订单ID
+        :data: 订单信息
+        :returns: order_id
+
+        """
         api = "/orders/" + order_id
         return self._put(api, data).json()
 
