@@ -222,12 +222,31 @@ class Cscart:
         api = "/orders/" + order_id
         return self._put(api, data).json()
 
+    def update_order_status(self, order_id: str, new_status: str) -> dict:
+        """更新订单状态
+
+        :order_id: 订单ID
+        :new_status: 订单新状态
+        :returns: order_id
+
+        """
+        data = { 'status':new_status }
+        return self.update_order(order_id, data)
+
+
 if __name__ == "__main__":
-    pass
-    #c = Cscart(domain="http://clothingfan.com",
-               #email="testadmin@admin.com",
-               #api_key="qoS19R443v6h267Oa0l4L13R73220e91")
-    # test get orders
+    import os
+
+    domain = os.environ['DOMAIN']
+    email = os.environ['EMAIL']
+    api_key = os.environ['API_KEY']
+
+    c = Cscart(domain, email, api_key)
+
+    # test update order status
+    print(c.update_order_status('1360122', 'H'))
+
+    #test get orders
     #print(c.get_orders(status='P'))
 
     # test get
