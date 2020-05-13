@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import requests
 import base64
 
@@ -222,6 +225,16 @@ class Cscart:
         api = "/orders/" + order_id
         return self._put(api, data).json()
 
+    def get_product(self, product_id: str, data: dict) -> dict:
+        """获取产品信息
+
+        :product_id: 产品ID
+        :returns: 产品详细信息
+
+        """
+        api = "/products/" + product_id
+        return self._get(api).json()
+
     def update_order_status(self, order_id: str, new_status: str) -> dict:
         """更新订单状态
 
@@ -233,7 +246,6 @@ class Cscart:
         data = { 'status':new_status }
         return self.update_order(order_id, data)
 
-
 if __name__ == "__main__":
     import os
 
@@ -244,7 +256,7 @@ if __name__ == "__main__":
     c = Cscart(domain, email, api_key)
 
     # test update order status
-    print(c.update_order_status('1360122', 'H'))
+    print(c.get_product('10939', None))
 
     #test get orders
     #print(c.get_orders(status='P'))
