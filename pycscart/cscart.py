@@ -243,7 +243,12 @@ class Cscart:
         :returns: order_id
 
         """
-        data = { 'status':new_status }
+        data = {
+                "status": new_status,
+                "notify_user": "1",
+                "notify_department": "1",
+                "notify_vendor": "1"
+                }
         return self.update_order(order_id, data)
 
 if __name__ == "__main__":
