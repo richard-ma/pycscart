@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycscart", # Replace with your own username
-    version="0.5.0",
+    version="0.5.1",
     author="richard_ma",
     author_email="richard.ma.19850509@gmail.com",
     description="package for cs-cart API",
